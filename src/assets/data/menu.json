@@ -1,0 +1,10 @@
+[
+  {
+    "name": "Programarme",
+    "redirect": "/dashboard/programming"
+  },
+  {
+    "name": "Calificaciones",
+    "redirect": "/dashboard/scores"
+  }
+]

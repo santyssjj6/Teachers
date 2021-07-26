@@ -1,0 +1,85 @@
+<div class="container">
+  <mat-toolbar>
+    <span>PROGRAMARME</span>
+  </mat-toolbar>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Checkbox Column -->
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox
+          (change)="$event ? masterToggle() : null"
+          [checked]="selection.hasValue() && isAllSelected()"
+          [indeterminate]="selection.hasValue() && !isAllSelected()"
+          [aria-label]="checkboxLabel()"
+        >
+        </mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <mat-checkbox
+          (click)="$event.stopPropagation()"
+          (change)="$event ? selection.toggle(row) : null"
+          [checked]="selection.isSelected(row)"
+          [aria-label]="checkboxLabel(row)"
+        >
+        </mat-checkbox>
+      </td>
+    </ng-container>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="MATERIA">
+      <th mat-header-cell *matHeaderCellDef>Materia</th>
+      <td mat-cell *matCellDef="let element">{{ element.MATERIA }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="SIGLA">
+      <th mat-header-cell *matHeaderCellDef>Sigla</th>
+      <td mat-cell *matCellDef="let element">{{ element.SIGLA }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="GRUPO">
+      <th mat-header-cell *matHeaderCellDef>Grupo</th>
+      <td
+        mat-cell
+        *matCellDef="let element"
+        style="width: 5%; text-align: center"
+      >
+        <mat-form-field appearance="fill">
+          <mat-label>Grupo</mat-label>
+          <mat-select>
+            <mat-option
+              (onSelectionChange)="change($event, element)"
+              *ngFor="let group of element.GRUPO"
+              value="{{ group }}"
+              >{{ group }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </td>
+    </ng-container>
+    <!-- Weight Column -->
+    <ng-container matColumnDef="CREDITOS">
+      <th mat-header-cell *matHeaderCellDef>Creditos</th>
+      <td mat-cell *matCellDef="let element" style="text-align: center">
+        {{ element.CREDITOS }}
+      </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="CURSO">
+      <th mat-header-cell *matHeaderCellDef>Curso</th>
+      <td mat-cell *matCellDef="let element">{{ element.CURSO }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <div class="example-button-row" style="text-align: center; margin: 10px">
+    <button mat-raised-button color="primary" (click)="programate()">
+      Programarme
+    </button>
+    <div class="example-button-row"></div>
+  </div>
+</div>

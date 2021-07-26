@@ -1,0 +1,36 @@
+<div class="body">
+  <div class="login">
+    <form *ngIf="!loading" [formGroup]="form" (ngSubmit)="login()">
+      <img src="./assets/img/usfx.png" width="50%" />
+      <h1>Login</h1>
+      <mat-form-field class="width" appearance="fill">
+        <mat-label>Nombre de Usuario</mat-label>
+        <input
+          type="text"
+          matInput
+          autocomplete="off"
+          formControlName="userName"
+        />
+      </mat-form-field>
+      <mat-form-field class="width" appearance="fill">
+        <mat-label>Contraseña</mat-label>
+        <input
+          type="password"
+          matInput
+          autocomplete="off"
+          formControlName="password"
+        /> </mat-form-field
+      ><br />
+      <button
+        type="submit"
+        mat-raised-button
+        class="width button"
+        color="primary"
+        [disabled]="form.invalid"
+      >
+        Ingresar
+      </button>
+    </form>
+    <mat-spinner *ngIf="loading" diameter="50" class="spinner"></mat-spinner>
+  </div>
+</div>

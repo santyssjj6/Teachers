@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+  <span routerLink="/dashboard" style="cursor: pointer">SISTEMA DOCENTE</span>
+  <span class="example-spacer"></span>
+  <button mat-button color="secondary" routerLink="/dashboard/scores">
+    Notas
+  </button>
+
+  <span class="example-spacer"></span>
+  <button mat-button color="secondary">{{ userName }}</button>
+  <button mat-icon-button color="secondary" (click)="logout()">
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>

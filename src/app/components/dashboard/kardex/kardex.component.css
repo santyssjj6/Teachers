@@ -1,0 +1,24 @@
+table {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.red {
+  color: red;
+}
+
+.black {
+  color: black;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+th {
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
